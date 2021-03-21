@@ -15,7 +15,13 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: VSTest@2
+- task: VSBuild@1
   inputs:
+    solution: '**\*.sln'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    restoreNugetPackages: true
+    msbuildArchitecture: 'x64'
+    createLogFile: true
+    logFileVerbosity: 'detailed'
+    
