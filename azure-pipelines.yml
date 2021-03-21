@@ -15,6 +15,7 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: DotNetCoreCLI@2
+- task: VSTest@2
   inputs:
-    command: 'test'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
